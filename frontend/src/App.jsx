@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useAuthStore } from './store/authStore';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -17,6 +18,14 @@ import ToastProvider from './components/ToastProvider';
 
 function App() {
   const { user, loading } = useAuthStore();
+
+  // Remove initial loading spinner once app is ready
+  useEffect(() => {
+    const initialLoading = document.querySelector('.initial-loading');
+    if (initialLoading && !loading) {
+      initialLoading.remove();
+    }
+  }, [loading]);
 
   if (loading) {
     return (
