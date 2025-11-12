@@ -7,10 +7,15 @@ const { Pool } = pg;
 
 const pool = new Pool({
   host: process.env.DB_HOST || 'localhost',
-  port: process.env.DB_PORT || 5432,
+  port: parseInt(process.env.DB_PORT || '5432'),
   user: process.env.DB_USER || 'cms_user',
   password: process.env.DB_PASSWORD || 'cms_password',
   database: process.env.DB_NAME || 'cms_db',
+  ssl: process.env.DB_HOST && process.env.DB_HOST.includes('neon.tech') ? {
+    rejectUnauthorized: false
+  } : false,
+  connectionTimeoutMillis: 10000,
+  idleTimeoutMillis: 30000,
 });
 
 // Test connection
