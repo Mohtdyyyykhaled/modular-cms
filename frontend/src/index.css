@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-700;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white min-h-screen;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .dark body {
+    @apply bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950;
+  }
+
+  /* Typography System */
+  .heading-1 {
+    @apply text-5xl font-bold leading-tight;
+  }
+
+  .heading-2 {
+    @apply text-4xl font-semibold leading-tight;
+  }
+
+  .heading-3 {
+    @apply text-3xl font-semibold leading-snug;
+  }
+
+  .heading-4 {
+    @apply text-2xl font-semibold leading-snug;
+  }
+
+  .body-large {
+    @apply text-lg leading-relaxed;
+  }
+
+  .body {
+    @apply text-base leading-relaxed;
+  }
+
+  .caption {
+    @apply text-sm leading-normal;
+  }
+
+  /* Shimmer Animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+}
+
+@layer components {
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg;
+  }
+
+  .glass-strong {
+    @apply bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl shadow-xl;
+  }
+
+  .glass-light {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl;
+  }
+
+  /* Buttons */
+  .btn-glass {
+    @apply glass px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300 font-medium;
+  }
+
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-dark text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-danger {
+    @apply bg-danger hover:bg-red-500 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300;
+  }
+
+  /* Card Turncard Effect */
+  .card-container {
+    @apply perspective-1000;
+  }
+
+  .card-inner {
+    @apply relative w-full h-full transition-transform duration-500;
+    transform-style: preserve-3d;
+  }
+
+  .card-container:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front,
+  .card-back {
+    @apply absolute w-full h-full backface-hidden rounded-xl;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+  }
+
+  /* Input */
+  .input-glass {
+    @apply glass px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all;
+  }
+
+  /* Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-white/5 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-white/20 rounded-full hover:bg-white/30;
+  }
+
+  /* React Quill Dark Theme */
+  .quill-dark .ql-container {
+    @apply bg-transparent text-white;
+  }
+
+  .quill-dark .ql-editor {
+    @apply text-white;
+  }
+
+  .quill-dark .ql-editor.ql-blank::before {
+    @apply text-gray-400;
+  }
+
+  .quill-dark .ql-toolbar {
+    @apply bg-white/10 border-white/20 rounded-t-lg;
+  }
+
+  .quill-dark .ql-toolbar .ql-stroke {
+    @apply stroke-gray-300;
+  }
+
+  .quill-dark .ql-toolbar .ql-fill {
+    @apply fill-gray-300;
+  }
+
+  .quill-dark .ql-toolbar button:hover .ql-stroke,
+  .quill-dark .ql-toolbar button.ql-active .ql-stroke {
+    @apply stroke-accent;
+  }
+
+  .quill-dark .ql-toolbar button:hover .ql-fill,
+  .quill-dark .ql-toolbar button.ql-active .ql-fill {
+    @apply fill-accent;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  /* Ripple Effect */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .ripple:active::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Smooth Scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus States */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-slate-900;
+  }
+}
+
