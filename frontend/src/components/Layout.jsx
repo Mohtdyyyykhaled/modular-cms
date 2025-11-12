@@ -200,9 +200,42 @@ const Layout = () => {
           </div>
         </header>
 
-        <main className="p-6">
+        <main className="p-6 pb-24">
           <Outlet />
         </main>
+
+        {/* Footer */}
+        <footer className="glass-strong border-t border-white/10 mt-auto">
+          <div className="max-w-7xl mx-auto px-6 py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="text-sm text-gray-400">
+                <p>&copy; {new Date().getFullYear()} Modular CMS. Tutti i diritti riservati.</p>
+              </div>
+              <div className="flex gap-6 text-sm">
+                <a 
+                  href="/privacy-policy" 
+                  className="text-gray-400 hover:text-accent transition-colors"
+                >
+                  Privacy Policy
+                </a>
+                <a 
+                  href="/terms-of-service" 
+                  className="text-gray-400 hover:text-accent transition-colors"
+                >
+                  Termini di Servizio
+                </a>
+                <a 
+                  href="https://github.com/thedragon689/modular-cms" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-accent transition-colors"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );
