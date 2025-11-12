@@ -37,7 +37,10 @@ const Login = () => {
     }
 
     if (result.success) {
-      navigate('/dashboard');
+      // Wait for Zustand persist to save state, then navigate
+      setTimeout(() => {
+        navigate('/dashboard', { replace: true });
+      }, 150);
     } else {
       setError(result.error);
     }
