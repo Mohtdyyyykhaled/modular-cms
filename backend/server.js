@@ -65,18 +65,36 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Initialize database and start server
-initDatabase()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-      console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
+// Initialize database and start server (only if not in serverless environment)
+if (process.env.VERCEL !== '1') {
+  initDatabase()
+    .then(() => {
+      app.listen(PORT, () => {
+        console.log(`🚀 Server running on port ${PORT}`);
+        console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
+      });
+    })
+    .catch((error) => {
+      console.error('❌ Failed to initialize database:', error);
+      process.exit(1);
     });
-  })
-  .catch((error) => {
-    console.error('❌ Failed to initialize database:', error);
-    process.exit(1);
+} else {
+  // In Vercel serverless, initialize database on first request
+  let dbInitialized = false;
+  app.use(async (req, res, next) => {
+    if (!dbInitialized) {
+      try {
+        await initDatabase();
+        dbInitialized = true;
+        console.log('✅ Database initialized in serverless function');
+      } catch (error) {
+        console.error('❌ Database initialization error:', error);
+        return res.status(500).json({ message: 'Database initialization failed' });
+      }
+    }
+    next();
   });
+}
 
 export default app;
 
