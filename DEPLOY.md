@@ -77,12 +77,66 @@ Se è la prima volta che fai push, GitHub potrebbe richiedere l'autenticazione:
 
 ✅ **Commit iniziale:** Completato con tutti i file del progetto
 
+## 🚀 Deploy su Vercel
+
+Il progetto è configurato per il deploy automatico su Vercel.
+
+### Configurazione Automatica
+
+Il progetto include:
+- ✅ `vercel.json` - Configurazione Vercel
+- ✅ `.vercelignore` - File esclusi dal deploy
+- ✅ Script `vercel-build` nel package.json
+
+### Passi per Deploy
+
+1. **Installa Vercel CLI** (opzionale):
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Deploy da GitHub** (consigliato):
+   - Vai su [Vercel](https://vercel.com)
+   - Connetti il tuo account GitHub
+   - Importa il repository `thedragon689/modular-cms`
+   - Vercel rileverà automaticamente la configurazione da `vercel.json`
+   - Clicca "Deploy"
+
+3. **Deploy da CLI**:
+   ```bash
+   vercel
+   ```
+
+### Configurazione Vercel
+
+Il file `vercel.json` è già configurato con:
+- **Build Command**: `npm run vercel-build`
+- **Output Directory**: `frontend/dist`
+- **Install Command**: Installa dipendenze root e frontend
+- **Framework**: Vite
+- **Rewrites**: SPA routing configurato
+
+### Variabili d'Ambiente
+
+Se necessario, aggiungi variabili d'ambiente su Vercel:
+- Dashboard Vercel → Project → Settings → Environment Variables
+
+### Risoluzione Problemi Vercel
+
+#### Errore: "vite: command not found"
+✅ **Risolto**: Il `vercel.json` ora installa le dipendenze nella cartella `frontend` prima del build.
+
+#### Build Fallisce
+- Verifica che tutte le dipendenze siano nel `package.json` del frontend
+- Controlla i log di build su Vercel per dettagli
+
 ## 🎯 Prossimi Passi Dopo il Deploy
 
 1. **Configura GitHub Actions** (opzionale) per CI/CD
 2. **Aggiungi GitHub Pages** se vuoi hostare la documentazione
 3. **Configura branch protection** per il branch `main`
 4. **Aggiungi collaboratori** se necessario
+5. **Deploy su Vercel** per il frontend
 
 ## 🆘 Risoluzione Problemi
 
